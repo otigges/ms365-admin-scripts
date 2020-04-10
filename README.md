@@ -3,15 +3,18 @@
 This repository contains some PowerShell scripts for administration of Microsoft 365 AD and Teams:
 
 1. Fetch users of a group recursively from sub groups
-2. Assign a policy package to those users.
+2. Assign a policy package to those users
 
 If you have any questions, suggestions or feature requests, please open an issue here: https://github.com/otigges/ms365-admin-scripts/issues
+
+Of course, also pull requests are welcome.
 
 ## Prerequisites
 
 In order to adminstrate Azure AD groups and users their policies in Microsoft Teams you need to install these Powershell Modules:
 
 `Install-Module AzureAdPreviews`
+
 `Install-Module -Name MicrosoftTeams`
 
 Hint: Maybe, you need to install C++ libraries first. Please download from: https://support.microsoft.com/de-de/help/2977003/the-latest-supported-visual-c-downloads
@@ -21,6 +24,7 @@ Hint: Maybe, you need to install C++ libraries first. Please download from: http
 For each administration session you need to login in to both Azure AD and Microsoft Teams:
 
 `Connect-AzureAD`
+
 `Connect-MicrosoftTeams`
 
 See https://docs.microsoft.com/en-us/powershell/module/azuread/connect-azuread?view=azureadps-2.0 for more information.
