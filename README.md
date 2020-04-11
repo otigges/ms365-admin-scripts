@@ -11,7 +11,7 @@ Of course, also pull requests are welcome.
 
 ## Prerequisites
 
-In order to adminstrate Azure AD groups, users, and their policies in Microsoft Teams you need to install these Powershell Modules:
+In order to administrate Azure AD groups, users, and their policies in Microsoft Teams you need to install these Powershell Modules:
 
 `Install-Module AzureAdPreviews`
 
@@ -42,7 +42,7 @@ Fetch all members recursively using the script `Fetch-GroupMembers.ps1`:
 
 `$members = .\Fetch-GroupMembers.ps1 -group $group`
 
-The members of this group are bound to variable `$members`. You can inspect them in PowerSehll by just typing:
+The members of this group are bound to variable `$members`. You can inspect them in PowerShell by just typing:
 
 `$members`
 
