@@ -54,14 +54,6 @@ You can display all available policy packages using:
 
 The "Name" field corresponds the policy package's "Identity".
 
-Bind the desired policy package, e.g. "Education_SecondaryStudent", to the variable `$policyPackage`:
-
-`$policyPackage = Get-CsPolicyPackage -Identity "Education_SecondaryStudent"`
-
-Finally, you can assign this package to all selected members using the `Assign-PolicyPackage.ps1`script:
-
-`.\Assign-PolicyPackage.ps1 $members $policyPackage.name`
-
-If you already know the name of the package you can assign it directly, e.g.:
+Finally, you can assign the desired policy to all group members, e.g.:
 
 `.\Assign-PolicyPackage.ps1 $members "Education_SecondaryStudent"`
