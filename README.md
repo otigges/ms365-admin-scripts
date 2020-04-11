@@ -60,4 +60,8 @@ Bind the desired policy package, e.g. "Education_SecondaryStudent", to the varia
 
 Finally, you can assign this package to all selected members using the `Assign-PolicyPackage.ps1`script:
 
-`.\Assign-PolicyPackage.ps1 $members $policyPackage`
+`.\Assign-PolicyPackage.ps1 $members $policyPackage.name`
+
+If you already know the name of the package you can assign it directly, e.g.:
+
+`.\Assign-PolicyPackage.ps1 $members "Education_SecondaryStudent"`
