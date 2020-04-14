@@ -9,16 +9,17 @@
 # Connect-AzureAD
 
 # Retrieve the group:
-# $group = Get-AzureADGroup | where displayname -like "Some group name expression *" 
+# $groups = Get-AzureADGroup | where displayname -like "Some group name expression *" 
 
 # Now you can call this script:
-# .\Fetch-GroupMembers.ps1 -group $group
+#.\Fetch-GroupMembers.ps1 -groups $groups
 
 ## PARAMS
 
 param (
 [Parameter(Mandatory=$false,HelpMessage="Die ObjectID der (Ober-)Gruppe.")][String]$groupObjectId,
-[Parameter(Mandatory=$false,HelpMessage="Die (Ober-)Gruppe.")][Microsoft.Open.AzureAD.Model.DirectoryObject]$group
+[Parameter(Mandatory=$false,HelpMessage="Die (Ober-)Gruppe.")][Microsoft.Open.AzureAD.Model.DirectoryObject]$group,
+[Parameter(Mandatory=$false,HelpMessage="Eine Liste von (Ober-)Gruppen.")][Array]$groups
 )
 
 ## FUNCTIONS
@@ -43,26 +44,19 @@ function collectMembersInHiararchy {
     }
 } 
 
-function getAllMembers {
-    param($groupObjectId)
-    $collection = @{}
-    collectMembersInHiararchy $groupObjectId $collection
-    return $collection.values
-} 
-
 ## EXECUTE
 
-if ($group){
-    return getAllMembers($group.ObjectId) | sort | unique
+
+$collection = @{}
+
+if ($groups){
+   $groups | foreach {
+     collectMembersInHiararchy $_.objectId $collection
+   }
+} elsif ($group){
+   collectMembersInHiararchy $grou.objectId $collection
 } else {
-    return getAllMembers($groupObjectId) | sort | unique
+    collectMembersInHiararchy $groupObjectId $collection
 }
 
-
-
-
-
-
-
-
-
+return $collection | sort | unique
