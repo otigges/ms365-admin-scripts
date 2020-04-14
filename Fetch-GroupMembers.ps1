@@ -53,8 +53,8 @@ if ($groups){
    $groups | foreach {
      collectMembersInHiararchy $_.objectId $collection
    }
-} elsif ($group){
-   collectMembersInHiararchy $grou.objectId $collection
+} elseif ($group){
+   collectMembersInHiararchy $group.objectId $collection
 } else {
     collectMembersInHiararchy $groupObjectId $collection
 }
