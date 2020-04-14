@@ -32,17 +32,21 @@ See https://docs.microsoft.com/en-us/powershell/module/azuread/connect-azuread?v
 
 ## Select all users from a parent group
 
-Find the group:
+Find the group(s):
 
-`$group = Get-AzureADGroup | where displayname -eq "<group name>"`
+`$groups = Get-AzureADGroup | where displayname -eq "<group name>"`
 
-Now the group is bound to variable `$group`.
+or 
+
+`$groups = Get-AzureADGroup -Searchstring "<group name>`
+
+Now the groups are bound to variable `$groups`.
 
 Fetch all members recursively using the script `Fetch-GroupMembers.ps1`:
 
-`$members = .\Fetch-GroupMembers.ps1 -group $group`
+`$members = .\Fetch-GroupMembers.ps1 -groups $groups`
 
-The members of this group are bound to variable `$members`. You can inspect them in PowerShell by just typing:
+The members of these groups are bound to variable `$members`. You can inspect them in PowerShell by just typing:
 
 `$members`
 
